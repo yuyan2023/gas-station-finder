@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail - Pump Nav</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/css_reset.css" />
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="../../css/layout.css" />
+    <link rel="stylesheet" href="../../css/components.css" />
+    <link rel="stylesheet" href="detail.css">
+</head>
+<body>
+    <header>
+        <span class="logo text-shadow" tabindex="0">Pump Nav</span>
+        <span class="hamburger" tabindex="0" role="button" aria-expanded="false" aria-controls="navbar">
+            <i class="bi bi-list"></i>
+        </span>
+        <nav class="navbar" id="navbar" role="navigation" aria-label="main navigation">
+            <ul class="navbar-list">
+                <li><a href="../../index.html" class="navbar-link">Home</a></li>
+                <li><a href="../result/result.html" class="navbar-link">Listings</a></li>
+                <li><a href="../area/area.html" class="navbar-link">Area</a></li>
+                <li><a href="../recommendation/recommendation.html" class="navbar-link">Recommendation</a></li>
+            </ul>
+        </nav>
+        <div class="button-group">
+            <button class="btn-circular"><a href="../login/login.html"><i class="bi bi-person"></i></a></button>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="back-button-container">
+                <button id="backButton" class="back-button">
+                    <i class="bi bi-arrow-left"></i> Back
+                </button>
+            </div>
+            <div id="detail-container"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Green Mood.</p>
+    </footer>
+
+    <script>
+        const getLogoBasedOnSiteName = (siteName) => {
+            const keywordLogoMapping = [
+            { keyword: 'Coles', logo: '../../assets/images/logo/colesexpress-logo.jpg' },
+            { keyword: 'Reddy', logo: '../../assets/images/logo/colesexpress-logo.jpg' },
+            { keyword: 'Eleven', logo: '../../assets/images/logo/711-logo.svg' },
+            { keyword: 'BP', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'United', logo: '../../assets/images/logo/united-logo.png' },
+            { keyword: 'NightOwl', logo: '../../assets/images/logo/nightowl-logo.png' },
+            { keyword: 'Ampol', logo: '../../assets/images/logo/ampol-logo.svg' },
+            { keyword: 'Caltex', logo: '../../assets/images/logo/caltex-logo.png' },
+            { keyword: 'Metro', logo: '../../assets/images/logo/metro-logo.png' },
+            { keyword: 'Pearl', logo: '../../assets/images/logo/pearl-logo.png' },
+            { keyword: 'Freedom', logo: '../../assets/images/logo/freedom-logo.jpg' },
+            { keyword: 'S24', logo: '../../assets/images/logo/caltex-logo.png' },
+            { keyword: 'Lowes', logo: '../../assets/images/logo/lowes-logo.png' },
+            { keyword: 'Shell', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Brians', logo: '../../assets/images/logo/brians.webp' },
+            { keyword: 'Liberty', logo: '../../assets/images/logo/liberty-logo.png' },
+            { keyword: 'Puma', logo: '../../assets/images/logo/puma-logo.png' },
+            { keyword: 'U-Go', logo: '../../assets/images/logo/ugo-logo.svg' },
+            { keyword: 'Red Dog', logo: '../../assets/images/logo/reddog-logo.jpg' },
+            { keyword: 'Pacific', logo: '../../assets/images/logo/pacific-logo.png' },
+            { keyword: 'Mobil', logo: '../../assets/images/logo/mobil-logo.png' },
+            { keyword: 'Metco', logo: '../../assets/images/logo/metro-logo.png' },
+            { keyword: 'OOM', logo: '../../assets/images/logo/oom-logo.jpg' },
+            { keyword: 'Raceview', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Tyre', logo: '../../assets/images/logo/tyreplus-logo.png' },
+            { keyword: 'Mega', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Moorooka', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Rain', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Elimbah', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Jio', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Aussie', logo: '../../assets/images/logo/aussie-logo.png' },
+            { keyword: 'South East', logo: '../../assets/images/logo/seq-logo.png' },
+            { keyword: 'Fraser', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Billabong', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Independent', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'JIO', logo: '../../assets/images/logo/jio-logo.png' },
+            { keyword: 'Kepnock', logo: '../../assets/images/logo/colesexpress-logo.jpg' },
+            { keyword: 'Parkhurst', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Boost', logo: '../../assets/images/logo/boost-logo.jpg' },
+            { keyword: 'Van Ansem', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'IOR', logo: '../../assets/images/logo/ior-logo.png' },
+            { keyword: 'Neds', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Hope', logo: '../../assets/images/logo/hope-logo.svg' },
+            { keyword: 'Marano', logo: '../../assets/images/logo/maranos-logo.jpg' },
+            { keyword: 'Roadhouse', logo: '../../assets/images/logo/roadhouse-logo.png' },
+            { keyword: 'Wandoan', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Explorer', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Widgee', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Goomeri', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Wondai', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Spring', logo: '../../assets/images/logo/spring-logo.webp' },
+            { keyword: 'Tilstons', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Wondai', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Zenna', logo: '../../assets/images/logo/roadhouse-logo.png' },
+            { keyword: 'Astron', logo: '../../assets/images/logo/astron-logo.jpg' },
+            { keyword: 'Wessel', logo: '../../assets/images/logo/wessel-logo.webp' },
+            { keyword: 'Walkerston', logo: '../../assets/images/logo/walkerston-logo.png' },
+            { keyword: 'Calen', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Crows', logo: '../../assets/images/logo/roadhouse-logo.png' },
+            { keyword: 'T & H', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Taroom', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Jones Hill', logo: '../../assets/images/logo/roadhouse-logo.png' },
+            { keyword: 'Stargazers', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Stanwell Store', logo: '../../assets/images/logo/bp-logo.svg' },
+            { keyword: 'Midway', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Yungaburra', logo: '../../assets/images/logo/yps-logo.png' },
+            { keyword: 'Central Servo', logo: '../../assets/images/logo/centralservo-logo.png' },
+            { keyword: 'Cam', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Gowrie One', logo: '../../assets/images/logo/shell-logo.png' },
+            { keyword: 'Meringandan', logo: '../../assets/images/logo/bp-logo.svg' }
+        ];
+
+            for (let i = 0; i < keywordLogoMapping.length; i++) {
+                if (siteName.includes(keywordLogoMapping[i].keyword)) {
+                    return keywordLogoMapping[i].logo;
+                }
+            }
+
+            return '';
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const detailContainer = document.getElementById('detail-container');
+
+            let siteName = '';
+            let siteAddress = '';
+            let siteSuburb = '';
+            let siteState = '';
+            let sitePostCode = '';
+            let siteLat = '';
+            let siteLong = '';
+
+            for (const [key, value] of params) {
+                if (key !== 'Price' && key !== 'Fuel_Type') {
+                    switch(key) {
+                        case 'Site_Name':
+                            siteName = value;
+                            break;
+                        case 'Sites_Address_Line_1':
+                            siteAddress = value;
+                            break;
+                        case 'Site_Suburb':
+                            siteSuburb = value;
+                            break;
+                        case 'Site_State':
+                            siteState = value;
+                            break;
+                        case 'Site_Post_Code':
+                            sitePostCode = value;
+                            break;
+                        case 'Site_Latitude':
+                            siteLat = value;
+                            break;
+                        case 'Site_Longitude':
+                            siteLong = value;
+                            break;
+                    }
+                }
+            }
+
+            const logoUrl = getLogoBasedOnSiteName(siteName);
+            const logoHTML = logoUrl ? `<img src="${logoUrl}" alt="${siteName} Logo" class="site-logo">` : '';
+
+            detailContainer.innerHTML = `
+                <div class="detail-header">
+                    ${logoHTML}
+                    <h1>${siteName}</h1>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-section">
+                        <h2>Contact Infomation</h2>
+                        <p><strong>Address：</strong>${siteAddress}</p>
+                        <p>${siteSuburb}, ${siteState} ${sitePostCode}</p>
+                        <p><strong>Telephone：</strong>(07) 3456 7890</p>
+                    </div>
+                    <div class="detail-section">
+                        <h2>Location</h2>
+                        <p><strong>Latitude：</strong>${siteLat}</p>
+                        <p><strong>Longitude：</strong>${siteLong}</p>
+                    </div>
+                </div>
+            `;
+
+            const backButton = document.getElementById('backButton');
+            backButton.addEventListener('click', function() {
+                window.location.href = '../result/result.html';
+            });
+        });
+    </script>
+</body>
+</html>

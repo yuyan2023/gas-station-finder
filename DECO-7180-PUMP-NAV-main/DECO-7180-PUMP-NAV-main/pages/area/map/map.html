@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadata for character encoding and viewport for responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title and favicon -->
+    <title>Map - Pump Nav</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Load Google Font 'Oswald' -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
+    
+    <!-- Load Bootstrap Icons for icons used on the page -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Load various stylesheets for resetting CSS, base styles, layout, components, and Leaflet map -->
+    <link rel="stylesheet" href="../../../css/css_reset.css" />
+    <link rel="stylesheet" href="../../../css/base.css" />
+    <link rel="stylesheet" href="../../../css/layout.css" />
+    <link rel="stylesheet" href="../../../css/components.css" />
+    <link rel="stylesheet" href="../../../css/leaflet.css">
+    <link rel="stylesheet" href="map.css">
+</head>
+
+<body>
+    <!-- Header section containing logo, hamburger menu for mobile navigation, and a button group for user profile -->
+    <header>
+        <!-- Website logo with text shadow effect and accessible via keyboard (tabindex) -->
+        <span class="logo text-shadow" tabindex="0">Pump Nav</span>
+        
+        <!-- Hamburger menu for toggling mobile navigation -->
+        <span class="hamburger" tabindex="0" role="button" aria-expanded="false" aria-controls="navbar">
+            <i class="bi bi-list"></i> <!-- Bootstrap icon for hamburger menu -->
+        </span>
+
+        <!-- Main navigation bar for navigating between different pages -->
+        <nav class="navbar" id="navbar" role="navigation" aria-label="main navigation">
+            <ul class="navbar-list">
+                <!-- Links to different pages within the website -->
+                <li><a href="../../../index.html" class="navbar-link">Home</a></li>
+                <li><a href="../../result/result.html" class="navbar-link">Listings</a></li>
+                <li><a href="../../area/area.html" class="navbar-link">Area</a></li>
+                <li><a href="../../recommendation/recommendation.html" class="navbar-link">Recommendation</a></li>
+            </ul>
+        </nav>
+
+        <!-- Circular button group with user profile icon linking to the login page -->
+        <div class="button-group">
+            <button class="btn-circular">
+                <a href="../../login/login.html"><i class="bi bi-person"></i></a> <!-- Bootstrap icon for user profile -->
+            </button>
+        </div>
+    </header>
+
+    <!-- Main section containing the map and the list of gas stations -->
+    <section class="map-container">
+        <!-- Container for suburb selector dropdown and 'Go Back' button -->
+        <div class="select-container">
+            <!-- Button to go back to the previous page -->
+            <button class="back-button" onclick="goBack()">Go Back</button>
+            
+            <!-- Dropdown to select a suburb, options will be populated dynamically via JavaScript -->
+            <select id="suburbSelector">
+                <option value="">Select a Suburb</option>
+                <!-- Dynamically populated options will go here -->
+            </select>
+        </div>
+
+        <!-- Article element for displaying the map using Leaflet.js -->
+        <article id="map"></article>
+
+        <!-- Sidebar for displaying the list of gas stations in the selected suburb -->
+        <aside id="station-list">
+            <h2>Gas Stations</h2>
+            <!-- List of station details will be dynamically populated here -->
+            <ul id="station-details"></ul>
+        </aside>
+    </section>
+
+    <!-- Load Leaflet.js for interactive maps and jQuery for DOM manipulation -->
+    <script src="../../../assets/js/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Load the map functionality from map.js as an ES6 module -->
+    <script type="module" src="map.js"></script>
+
+</body>
+
+<!-- JavaScript function to navigate back to the previous page -->
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</html>

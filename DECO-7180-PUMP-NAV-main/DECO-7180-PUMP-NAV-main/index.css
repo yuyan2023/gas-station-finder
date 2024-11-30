@@ -1,0 +1,163 @@
+.page-container {
+	background-image: url("assets/images/home-hero-page.png");
+	background-size: cover;
+	border-radius: 1rem;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 100vh;
+	width: 100vw;
+	margin: 0;
+	margin-top: -5rem;
+}
+
+#hero-image {
+	display: flex;
+	align-items: start;
+	flex-direction: column;
+	position: relative;
+	padding: 5rem 1rem 0;
+	top: 50%;
+	transform: translateY(-60%);
+}
+
+#hero-image h1 {
+	text-align: left;
+	color: var(--white);
+	font-weight: 400;
+	margin-top: 2rem;
+}
+
+#hero-image form {
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin-top: 2rem;
+	width: 100%;
+}
+
+#hero-image form label {
+	display: none;
+}
+
+#hero-image form input {
+	width: 100%;
+	border-radius: 5rem;
+	height: 3.5rem;
+	padding: 0 2rem;
+	padding-right: 8rem;
+	border: none;
+	font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+	#hero-image {
+		top: 50%;
+		align-items: center;
+		transform: translateY(-60%);
+	}
+
+	#hero-image h1 {
+		text-align: center;
+	}
+
+	#hero-image form {
+		margin: 0 auto;
+		width: auto;
+	}
+
+	#hero-image form input {
+		width: 24rem;
+	}
+}
+
+
+#hero-image form input::placeholder {
+	color: var(--gray);
+}
+
+#hero-image form button {
+	position: absolute;
+}
+
+#hero-image form button.btn-no-back-border {
+	right: 3rem;
+}
+
+#hero-image form button.btn-circular-yellow {
+	right: 0.6rem;
+}
+
+#search-history {
+	margin-top: 2rem;
+	background-color: rgba(255, 255, 255, 0.2);
+	border: 1px solid #787878;
+	border-radius: 20px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	align-items: start;
+	display: none;
+}
+
+@media (min-width: 768px) {
+	#search-history {
+		width: 24rem;
+		align-items: center;
+	}
+}
+
+#search-history h2 {
+	color: var(--white);
+	margin-bottom: 1rem;
+}
+
+#search-history ul {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+#search-history ul li {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding: 1rem;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 10px;
+	border: 1px solid transparent;
+}
+
+#search-history ul li:hover {
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 1px solid var(--black);
+}
+
+#search-history ul li:hover i {
+	color: var(--black);
+}
+
+#search-history ul li>div:first-child {
+	margin-right: 1rem;
+	color: var(--gray);
+}
+
+#search-history ul li>div:nth-child(2) {
+	flex: 1;
+	overflow: hidden;
+}
+
+
+#search-history ul li div.detail {
+	display: flex;
+	gap: 1rem;
+}
+
+#search-history ul li div.detail span {
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding: 0.2rem 0;
+}

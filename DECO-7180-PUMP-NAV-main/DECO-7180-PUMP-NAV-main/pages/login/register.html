@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Pump Nav</title>
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/css_reset.css" />
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/layout.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="register.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="module" src="./register.js" defer></script>
+</head>
+
+<body>
+    <div id="hero-image">
+        <header>
+            <span class="logo text-shadow" tabindex="0">Pump nav</span>
+            <span class="hamburger" tabindex="0" role="button" aria-expanded="false" aria-controls="navbar">
+                <i class="bi bi-list"></i>
+            </span>
+            <nav class="navbar" id="navbar" role="navigation" aria-label="main navigation">
+                <ul class="navbar-list">
+                    <li><a href="../../index.html" class="navbar-link">Home</a></li>
+                    <li>
+                        <a href="../result/result.html" class="navbar-link">Listings</a>
+                    </li>
+                    <li><a href="../area/area.html" class="navbar-link">Area</a></li>
+                    <li><a href="../recommendation/recommendation.html" class="navbar-link">Recommendation</a></li>
+                </ul>
+            </nav>
+            <div class="button-group">
+                <button class="btn-circular"><a href="./login.html"><i class="bi bi-person"></i></a></button>
+                <!-- <button class="btn-no-back">All Stations</button> -->
+            </div>
+        </header>
+        <div class="login-container">
+            <h2>Register</h2>
+            <form>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group-checkbox">
+                    <input type="checkbox" id="policy-consent" name="policy-consent" required>
+                    <label for="policy-consent">I agree to the Terms and Conditions</label>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

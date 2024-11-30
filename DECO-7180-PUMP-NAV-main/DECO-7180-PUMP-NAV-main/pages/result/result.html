@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listings - Pump Nav</title>
+  <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/css_reset.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/layout.css" />
+  <link rel="stylesheet" href="../../css/components.css" />
+  <link rel="stylesheet" href="result.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type="module" src="result.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <span class="logo text-shadow" tabindex="0">Pump Nav</span>
+    <span class="hamburger" tabindex="0" role="button" aria-expanded="false" aria-controls="navbar">
+      <i class="bi bi-list"></i>
+    </span>
+    <nav class="navbar" id="navbar" role="navigation" aria-label="main navigation">
+      <ul class="navbar-list">
+        <li><a href="../../index.html" class="navbar-link">Home</a></li>
+        <li>
+          <a href="../result/result.html" class="navbar-link">Listings</a>
+        </li>
+        <li><a href="../area/area.html" class="navbar-link">Area</a></li>
+        <li><a href="../recommendation/recommendation.html" class="navbar-link">Recommendation</a></li>
+      </ul>
+    </nav>
+    <div class="button-group">
+      <button class="btn-circular"><a href="../login/login.html"><i class="bi bi-person"></i></a></button>
+    </div>
+  </header>
+  <main>
+    <div class="search-filter-bar">
+      <div class="search-bar">
+        <form action="" method="GET" class="search-form" role="search" aria-label="website search"></form>
+        <input type="search" id="search-input" name="q" placeholder="Enter name, postcode..." aria-label="search input">
+        </form>
+        <button class="btn-circular-yellow" type="submit" aria-label="search button">
+          <i class="bi bi-search"></i>
+        </button>
+        <button class="btn-no-back-border" type="button" aria-label="Filter options" id="open-filter-btn">
+          Filter
+        </button>
+      </div>
+      <div class="sort-bar">
+        <p>Sort By</p>
+        <button id="price-button" class="sort-button">Price ▲</button>
+        <button id="distance-button" class="sort-button">Distance ▲</button>
+      </div>
+    </div>
+    <div class="search-result">
+      <div class="result"></div>
+      <div class="result"></div>
+      <div class="result"></div>
+      <div class="result"></div>
+      <div class="result"></div>
+
+    </div>
+    <div class="pagination"></div>
+    </div>
+  </main>
+
+
+  <div id="filter-popup" class="modal" role="dialog" aria-labelledby="filter-popup">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="filter-popup-header">Filters</h2>
+        <button class="close" aria-label="Close filters"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <form id="filters-form">
+        <div class="modal-body">
+          <!-- Price Range -->
+          <div class="filter-group">
+            <input type="hidden" name="min-price">
+            <label for="price-range">Price Range</label>
+            <input type="range" id="price-range" name="price" step="1" class="slider" aria-valuemin="0"
+              aria-valuemax="100" aria-valuenow="50">
+            <span id="price-range-output"></span>
+          </div>
+
+          <!-- Petrol Brand -->
+          <div class="filter-group">
+            <label>Petrol Brand</label>
+            <div class="button-group" id="form-petrol-brand">
+              <input type="checkbox" id="brand-all" value="all" checked>
+              <label for="brand-all" class="filter-button">All</label>
+            </div>
+          </div>
+
+          <!-- Petrol Type -->
+          <div class="filter-group">
+            <label>Petrol Type</label>
+            <div class="button-group" id="form-petrol-type">
+              <input type="checkbox" id="type-all" value="all" checked>
+              <label for="type-all" class="filter-button">All</label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label for="distance-range">Distance Range</label>
+            <input type="range" id="distance-range" name="distance" min="0" max="10" step="1" value="10" class="slider"
+              aria-valuemin="0" aria-valuemax="10" aria-valuenow="10">
+            <span id="distance-range-output">0km - 10km</span>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-text" id="reset-btn">Reset Filters</button>
+          <button type="submit" class="btn-primary" id="modal-search-btn">Search</button>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <p>&copy; 2024 Green Mood.</p>
+    </footer>
+</body>
+
+</html>

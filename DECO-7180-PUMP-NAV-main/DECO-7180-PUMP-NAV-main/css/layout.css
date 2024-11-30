@@ -1,0 +1,106 @@
+.page-container {
+    width: 70rem;
+    margin: 0 auto 2%;
+}
+
+
+/* navigation */
+header {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+}
+
+header span.logo {
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+header span.logo:hover {
+    text-decoration: underline;
+}
+
+
+header .navbar {
+    padding: 10px 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: var(--white);
+}
+
+header .navbar .navbar-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+}
+
+header .navbar .navbar-link {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header .navbar .navbar-link:hover {
+    background-color: #555;
+}
+
+header .navbar .navbar-list {
+    display: none;
+}
+
+header .navbar .navbar-list.active {
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    width: 100%;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+
+header .hamburger {
+    font-size: 2rem;
+    color: var(--white);
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    header .navbar .navbar-list {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+    }
+
+    header .hamburger {
+        display: none;
+    }
+
+    header span.logo {
+        display: block;
+    }
+}
+
+header .button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+header .button-group .bi {
+    font-size: 1rem;
+}
